@@ -12,6 +12,7 @@ import android.net.Uri;
 public class Videos extends AppCompatActivity implements View.OnClickListener  {
 
     private Button btnPlay;
+    private Button btnTest;
     private VideoView videoView;
     private MediaController mediaController;
 
@@ -21,6 +22,8 @@ public class Videos extends AppCompatActivity implements View.OnClickListener  {
         setContentView(R.layout.activity_videos);
 
         btnPlay = (Button) findViewById(R.id.btnPlay);
+        btnTest = (Button) findViewById(R.id.btnTest);
+
 
 
         videoView = (VideoView)findViewById(R.id.videoView);
@@ -35,6 +38,7 @@ public class Videos extends AppCompatActivity implements View.OnClickListener  {
 
 
         btnPlay.setOnClickListener(this);
+        btnTest.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +47,11 @@ public class Videos extends AppCompatActivity implements View.OnClickListener  {
             case R.id.btnPlay:
                 //play
                 videoView.start();
+                break;
+            case R.id.btnTest:
+                //play
+                Intent homepageIntent = new Intent(Videos.this, Postpage.class);
+                Videos.this.startActivity(homepageIntent);
                 break;
 
         }

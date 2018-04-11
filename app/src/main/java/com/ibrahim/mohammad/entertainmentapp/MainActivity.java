@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -18,13 +19,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGoHome = (Button) findViewById(R.id.btnTest);
         btnGoHome.setOnClickListener(this);
 
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnTest:
-                Intent homepageIntent = new Intent(MainActivity.this, Homepage.class);
+                Intent homepageIntent = new Intent(MainActivity.this, Postpage.class);
                 MainActivity.this.startActivity(homepageIntent);
                 break;
 
