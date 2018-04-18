@@ -28,11 +28,11 @@
         android:layout_width="165dp"
         android:layout_height="127dp"
         android:layout_alignStart="@+id/btnViral"
-        android:layout_alignTop="@+id/BtnImages"
+        android:layout_alignTop="@+id/btnImages"
         android:text="Videos" />
 
     <Button
-        android:id="@+id/BtnImages"
+        android:id="@+id/btnImages"
         android:layout_width="165dp"
         android:layout_height="127dp"
         android:layout_alignEnd="@+id/btnViral"

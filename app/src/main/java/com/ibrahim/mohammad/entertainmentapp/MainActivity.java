@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnTest:
-                Intent homepageIntent = new Intent(MainActivity.this, Postpage.class);
+                Intent homepageIntent = new Intent(MainActivity.this, Homepage.class);
                 MainActivity.this.startActivity(homepageIntent);
                 break;
 

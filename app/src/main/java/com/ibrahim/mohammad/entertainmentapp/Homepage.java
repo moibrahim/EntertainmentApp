@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.VideoView;
-import android.widget.MediaController;
-import android.net.Uri;
 
 public class Homepage extends AppCompatActivity implements View.OnClickListener{
 
     private BottomNavigationView bottomNavigationView;
     private Button btnVideo;
+    private Button btnImages;
 
 
     @Override
@@ -25,6 +23,8 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
 
         btnVideo = (Button) findViewById(R.id.btnVideos);
         btnVideo.setOnClickListener(this);
+        btnImages = (Button) findViewById(R.id.btnImages);
+        btnImages.setOnClickListener(this);
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
 
@@ -45,6 +45,7 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
                         Intent registerIntent3 = new Intent(Homepage.this, Register.class);
                         Homepage.this.startActivity(registerIntent3);
                         break;
+
                 }
                 return false;
             }
@@ -56,8 +57,12 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
                 case R.id.btnVideos:
-                    Intent homepageIntent = new Intent(Homepage.this, Videos.class);
-                    Homepage.this.startActivity(homepageIntent);
+                    Intent vidsIntent = new Intent(Homepage.this, Videos.class);
+                    Homepage.this.startActivity(vidsIntent);
+                    break;
+                case R.id.btnImages:
+                    Intent imgIntent = new Intent(Homepage.this, Images.class);
+                    Homepage.this.startActivity(imgIntent);
                     break;
 
         }

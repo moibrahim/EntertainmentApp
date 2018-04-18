@@ -24,7 +24,8 @@
         <activity android:name=".Videos" />
         <activity android:name=".Postpage" />
         <activity android:name=".FragmentComment" />
-        <activity android:name=".FragmentPost"></activity>
+        <activity android:name=".FragmentPost" />
+        <activity android:name=".Images"></activity>
     </application>
 
 </manifest>
