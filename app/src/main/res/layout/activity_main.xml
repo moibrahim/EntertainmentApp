@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etUsername"
+            android:id="@+id/etLoginUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username" />
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />

@@ -17,6 +17,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ibrahim.mohammad.entertainmentapp.database.AppDatabase;
+import com.ibrahim.mohammad.entertainmentapp.database.Gifs;
 import com.ibrahim.mohammad.entertainmentapp.model.Video;
 import com.ibrahim.mohammad.entertainmentapp.CustomVidList;
 
@@ -29,18 +31,32 @@ public class Videos extends AppCompatActivity   implements View.OnClickListener 
     private List<Video> mVideosList = new ArrayList<>();
     private CustomVidList mVideoAdapter;
     private Button btnPlay;
+    private AppDatabase database;
+    private Gifs gifs;
+    private int gifCount;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videos);
 
+        database = AppDatabase.getDatabase(getApplicationContext());
+
+        List<Gifs> users = database.gifsDao().getAllgifs();
+        gifCount = users.size() + 1;
+        database.gifsDao().addGif(new Gifs(gifCount, "hello", "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4"));
+
+        gifs = database.gifsDao().getAllgifs().get(1);
+        url = gifs.gifUrl.toString();
+
+
 
         //assign video
         mVideosListView = (ListView) findViewById(R.id.vidList);
 
         //create videos
-        Video riverVideo = new Video("https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4");
+        Video riverVideo = new Video(url);
         Video carsVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862013714.mp4");
         Video townVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862014159.mp4");
         Video whiteCarVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862014159.mp4");
