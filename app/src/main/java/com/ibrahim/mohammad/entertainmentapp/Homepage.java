@@ -9,11 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.ibrahim.mohammad.entertainmentapp.database.Gifs;
+
 public class Homepage extends AppCompatActivity implements View.OnClickListener{
 
     private BottomNavigationView bottomNavigationView;
     private Button btnVideo;
     private Button btnImages;
+    private Button btnGifs;
 
 
     @Override
@@ -25,6 +28,8 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
         btnVideo.setOnClickListener(this);
         btnImages = (Button) findViewById(R.id.btnImages);
         btnImages.setOnClickListener(this);
+        btnGifs = (Button) findViewById(R.id.btnGifs);
+        btnGifs.setOnClickListener(this);
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
 
@@ -34,17 +39,18 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_home:
-                        Intent registerIntent = new Intent(Homepage.this, Register.class);
+                        Intent registerIntent = new Intent(Homepage.this, Homepage.class);
                         Homepage.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
-                        Intent registerIntent2 = new Intent(Homepage.this, MainActivity.class);
+                        Intent registerIntent2 = new Intent(Homepage.this, Notifications.class);
                         Homepage.this.startActivity(registerIntent2);
                         break;
-                    case R.id.menu_search:
-                        Intent registerIntent3 = new Intent(Homepage.this, Register.class);
+                    case R.id.menu_profile:
+                        Intent registerIntent3 = new Intent(Homepage.this, Profile.class);
                         Homepage.this.startActivity(registerIntent3);
                         break;
+
 
                 }
                 return false;
@@ -64,7 +70,10 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
                     Intent imgIntent = new Intent(Homepage.this, Images.class);
                     Homepage.this.startActivity(imgIntent);
                     break;
-
+            case R.id.btnGifs:
+                Intent gifIntent = new Intent(Homepage.this, GifsPage.class);
+                Homepage.this.startActivity(gifIntent);
+                break;
         }
 
     }

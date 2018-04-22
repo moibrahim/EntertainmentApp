@@ -25,7 +25,10 @@
         <activity android:name=".Postpage" />
         <activity android:name=".FragmentComment" />
         <activity android:name=".FragmentPost" />
-        <activity android:name=".Images"></activity>
+        <activity android:name=".Images" />
+        <activity android:name=".GifsPage" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Notifications"></activity>
     </application>
 
 </manifest>

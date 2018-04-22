@@ -6,14 +6,14 @@
         android:icon="@drawable/image1"
         />
     <item
-        android:id="@+id/menu_search"
-        android:title="Menu"
+        android:id="@+id/menu_profile"
+        android:title="Profile"
         android:icon="@drawable/image1"
         />
 
     <item
         android:id="@+id/menu_notifications"
-        android:title="Profile"
+        android:title="Activty"
         android:icon="@drawable/image1" />
 
 </menu>
