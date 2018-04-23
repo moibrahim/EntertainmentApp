@@ -27,7 +27,7 @@ import com.ibrahim.mohammad.entertainmentapp.model.Video;
 import com.ibrahim.mohammad.entertainmentapp.CustomVidList;
 
 
-public class GifsPage extends AppCompatActivity   implements View.OnClickListener {
+public class GifsPage extends AppCompatActivity  {
 
 
     private BottomNavigationView bottomNavigationView;
@@ -47,7 +47,6 @@ public class GifsPage extends AppCompatActivity   implements View.OnClickListene
 
 
         database = AppDatabase.getDatabase(getApplicationContext());
-
         List<Gifs> users = database.gifsDao().getAllgifs();
         gifCount = users.size() + 1;
         database.gifsDao().addGif(new Gifs(gifCount, "hello", "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4"));
@@ -84,14 +83,14 @@ public class GifsPage extends AppCompatActivity   implements View.OnClickListene
         mVideosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(GifsPage.this,
-                        "Your Message", Toast.LENGTH_LONG).show();
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(GifsPage.this, "You Clicked at " , Toast.LENGTH_SHORT).show();
+
             }
-
         });
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigationGifs);
 
+        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigationGifs);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -118,10 +117,5 @@ public class GifsPage extends AppCompatActivity   implements View.OnClickListene
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-
-    }
 }
 

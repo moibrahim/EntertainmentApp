@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etloginPassword;
     private String passwordDatabase;
     private String usernameDatabase;
+    private String idDatabase;
     private User user;
 
     @Override
@@ -50,7 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnTest:
+                final String guest = "guest";
                 Intent homepageIntent = new Intent(MainActivity.this, Homepage.class);
+                homepageIntent.putExtra("UserID", guest);
                 MainActivity.this.startActivity(homepageIntent);
                 break;
             case R.id.btnRegister:
@@ -71,9 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if (loginPassword.equals(passwordDatabase) && loginUsername.equals(usernameDatabase)){
                         userfound = true;
-                        Toast.makeText(MainActivity.this,
-                                "Logged in as " + usernameDatabase + ", Welcome back!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Logged in as " + usernameDatabase +", Welcome back!", Toast.LENGTH_LONG).show();
                         Intent loginIntent = new Intent(MainActivity.this, Homepage.class);
+                        idDatabase = Integer.toString(user.id-1);
+                        loginIntent.putExtra("UserID", idDatabase);
                         MainActivity.this.startActivity(loginIntent);
                     }
                     else {

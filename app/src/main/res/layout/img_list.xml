@@ -12,20 +12,11 @@
         android:layout_centerHorizontal="true" />
 
     <TableRow>
-
-
         <ImageView
             android:id="@+id/img"
             android:layout_width="wrap_content"
             android:layout_height="1080px"
-
             />
-
-
-
-
-
-
     </TableRow>
 
 </TableLayout>

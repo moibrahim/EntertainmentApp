@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Notifications">
+    <android.support.design.widget.BottomNavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:menu="@menu/menu_bottom_navigation" />
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="33dp"
+        android:text="ToggleButton" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="29dp"
+        android:text="Notifications"
+        android:textSize="24sp"
+        android:gravity="center|start"/>
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/toggleButton"
+        android:layout_marginTop="123dp"
+        android:text="ToggleButton" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignTop="@+id/toggleButton2"
+        android:text="Sound"
+        android:textSize="24sp"
+        android:gravity="center|start"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="153dp"
+        android:text="Log Out" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="190dp"
+        android:background="?android:attr/listDivider" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="99dp"
+        android:background="?android:attr/listDivider" />
+</RelativeLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.ibrahim.mohammad.entertainmentapp.database.Gifs;
 
@@ -17,6 +18,8 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     private Button btnVideo;
     private Button btnImages;
     private Button btnGifs;
+    private String UserId;
+    public String id;
 
 
     @Override
@@ -31,26 +34,46 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
         btnGifs = (Button) findViewById(R.id.btnGifs);
         btnGifs.setOnClickListener(this);
 
+
+
+
+
+        //bottom nav
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                //int id = Integer.parseInt(userIdnumber);
+                Intent intent = getIntent();
+                id = intent.getExtras().getString("UserID");
+
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Homepage.this, Homepage.class);
+                        registerIntent.putExtra("UserID", "1");
                         Homepage.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Homepage.this, Notifications.class);
+                        registerIntent2.putExtra("UserID", "1");
                         Homepage.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
-                        Intent registerIntent3 = new Intent(Homepage.this, Profile.class);
-                        Homepage.this.startActivity(registerIntent3);
-                        break;
 
+                      if (id.equals("guest")) {
+                          Toast.makeText(Homepage.this, "Must be logged in to view Profile" + id, Toast.LENGTH_SHORT).show();
+                          break;
+                      }
+
+                          Toast.makeText(Homepage.this, id, Toast.LENGTH_SHORT).show();
+                          Intent registerIntent3 = new Intent(Homepage.this, Profile.class);
+                          registerIntent3.putExtra("UserID", id);
+                          Homepage.this.startActivity(registerIntent3);
+                            break;
 
                 }
                 return false;

@@ -28,7 +28,10 @@
         <activity android:name=".Images" />
         <activity android:name=".GifsPage" />
         <activity android:name=".Profile" />
-        <activity android:name=".Notifications"></activity>
+        <activity android:name=".Notifications" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

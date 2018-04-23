@@ -12,19 +12,29 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.app.Activity;
 
+import com.ibrahim.mohammad.entertainmentapp.database.AppDatabase;
+import com.ibrahim.mohammad.entertainmentapp.database.AppDatabaseRoom3;
+import com.ibrahim.mohammad.entertainmentapp.database.ImagesList;
+import com.ibrahim.mohammad.entertainmentapp.database.Videos;
+
+import java.util.List;
+
 
 public class Images extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    private AppDatabaseRoom3 database3;
+    private ImagesList imagesList;
+    private String databaseWeb;
 
     ListView list;
     String[] web = {
-            "Google Plus",
-            "Twitter",
-            "Windows",
-            "Bing",
-            "Itunes",
-            "Wordpress"
+            "Image one",
+            "Image two",
+            "Image three",
+            "Image four",
+            "Image five",
+            "Image six"
     } ;
     Integer[] imageId = {
             R.drawable.image1,
@@ -41,8 +51,9 @@ public class Images extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
 
-        CustomImgList adapter = new
-                CustomImgList(Images.this, web, imageId);
+        database3 = AppDatabaseRoom3.getDatabase(getApplicationContext());
+
+        CustomImgList adapter = new CustomImgList(Images.this, web, imageId);
         list=(ListView)findViewById(R.id.imgListMain);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -51,6 +62,8 @@ public class Images extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Toast.makeText(Images.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
+                databaseWeb = web[+position];
+                SetupImagesList(databaseWeb,imageId[+position]);
 
             }
         });
@@ -81,6 +94,17 @@ public class Images extends AppCompatActivity {
         });
     }
 
+    private void SetupImagesList(String title, Integer urlNumber) {
+       // List<ImagesList> vidsList = database3.imagesDao().getAllImages();
+        final int imgCount = 1;
+        final String url = urlNumber.toString();
+        //add video link to videos table and set it to string - video controls
+        database3.imagesDao().addImages(new ImagesList(imgCount,title,url));
+        Intent registerIntent4 = new Intent(Images.this, Postpage.class);
+        Images.this.startActivity(registerIntent4);
 
     }
+
+
+}
 

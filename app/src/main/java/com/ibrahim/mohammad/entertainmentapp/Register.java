@@ -17,6 +17,7 @@ import java.util.List;
 
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
+    private User user;
     private Button btnRegisterConfirm;
     private EditText etName;
     private EditText etUsername;
@@ -24,6 +25,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private EditText etEmail;
     private AppDatabase database;
     private int userCount;
+    private int rgId;
+    private int mathId;
+    private String rgIdString;
+    private String namew;
+    private String pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +68,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             List<User> users = database.userDao().getAllUser();
             userCount = users.size() + 1;
             database.userDao().addUser(new User(userCount, username, password));
-            Toast.makeText(Register.this,
-                    "Account created", Toast.LENGTH_SHORT).show();
+            mathId = userCount -1;
+            user = database.userDao().getAllUser().get(userCount-1);
+            rgIdString = Integer.toString(user.id);
+            pass = user.password.toString();
+            namew = user.name.toString();
+
+            Toast.makeText(Register.this, "Account created" + userCount + "--" +rgIdString + namew + pass, Toast.LENGTH_LONG).show();
             Intent prefIntent = new Intent(Register.this, Homepage.class);
-            prefIntent.putExtra("usernameInput", username);
+            String id = Integer.toString(userCount-1);
+            prefIntent.putExtra("UserID", id);
             Register.this.startActivity(prefIntent);
         }
 

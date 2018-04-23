@@ -6,19 +6,19 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 
-@Database(entities = {User.class, Gifs.class, Videos.class}, version = 17, exportSchema = false)
-public abstract class AppDatabase extends RoomDatabase {
+@Database(entities = {Profile.class,Settings.class}, version = 17, exportSchema = false)
+public abstract class AppDatabaseRoom2 extends RoomDatabase {
 
-    private static AppDatabase INSTANCE;
+    private static AppDatabaseRoom2 INSTANCE;
 
-    public abstract UserDao userDao();
-    public abstract GifsDao gifsDao();
-    public abstract VideosDao videosDao();
+    public abstract ProfileDao profileDao();
+    public abstract SettingsDao settingsDao();
 
-    public static AppDatabase getDatabase(Context context) {
+
+    public static AppDatabaseRoom2 getDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE =
-                    Room.databaseBuilder(context, AppDatabase.class, "userdatabase")
+                    Room.databaseBuilder(context, AppDatabaseRoom2.class, "userdatabase2")
 //Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class)
                             // To simplify the exercise, allow queries on the main thread.
                             // Don't do this on a real app!

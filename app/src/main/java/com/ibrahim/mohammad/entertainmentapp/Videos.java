@@ -9,6 +9,7 @@ import android.view.GestureDetector;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -19,7 +20,11 @@ import android.net.Uri;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 
+import com.ibrahim.mohammad.entertainmentapp.database.AppDatabase;
+import com.ibrahim.mohammad.entertainmentapp.database.Gifs;
 import com.ibrahim.mohammad.entertainmentapp.model.OnSwipeTouchListener;
+
+import java.util.List;
 
 public class Videos extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
 
@@ -30,6 +35,10 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
     private MediaController mediaController;
     private String current = "1";
     private ImageView imageView2;
+    private AppDatabase database;
+    private com.ibrahim.mohammad.entertainmentapp.database.Videos videos;
+    private int gifCount;
+    private String url;
 
 
     @Override
@@ -114,8 +123,20 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
         btnPrev = (Button) findViewById(R.id.btnPrev);
         btnPrev.setOnClickListener(this);
 
+
+        //database set and get list of videos size
+        database = AppDatabase.getDatabase(getApplicationContext());
+        List<com.ibrahim.mohammad.entertainmentapp.database.Videos> vidsList = database.videosDao().getAllvids();
+        gifCount = vidsList.size() + 1;
+        //add video link to videos table and set it to string - video controls
+        database.videosDao().addVid(new com.ibrahim.mohammad.entertainmentapp.database.Videos(gifCount, "hello", "https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524360340-YhCiizZrMWP9HstoVEB2QizySqG2UIaRXZkjSc3knXk%3D"));
+
+        videos = database.videosDao().getAllvids().get(1);
+        url = videos.vidUrl.toString();
+
+
         mediaController.setAnchorView(videoView);
-        Uri uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524360340-YhCiizZrMWP9HstoVEB2QizySqG2UIaRXZkjSc3knXk%3D");
+        Uri uri = Uri.parse(url);
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(uri);
         videoView.requestFocus();
@@ -124,10 +145,8 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
 
 
 
-
-
+        // bottom navigation controls
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationVids);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override

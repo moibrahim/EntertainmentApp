@@ -4,18 +4,18 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity
-public class Videos {
+public class ImagesList {
 
     @PrimaryKey
     public final int id;
-    public String vidTitle;
-    public String vidUrl;
+    public String imageTitle;
+    public String imageUrl;
 
 
-    public Videos(int id, String vidTitle, String vidUrl) {
+    public ImagesList(int id, String imageTitle, String imageUrl) {
         this.id = id;
-        this.vidTitle = vidTitle;
-        this.vidUrl = vidUrl;
+        this.imageTitle = imageTitle;
+        this.imageUrl = imageUrl;
     }
 
 }
