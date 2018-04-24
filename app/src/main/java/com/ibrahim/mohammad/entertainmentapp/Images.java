@@ -76,14 +76,17 @@ public class Images extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Images.this, Homepage.class);
+                        registerIntent.putExtra("UserID", "0");
                         Images.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Images.this, Notifications.class);
+                        registerIntent2.putExtra("UserID", "0");
                         Images.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
                         Intent registerIntent3 = new Intent(Images.this, Profile.class);
+                        registerIntent3.putExtra("UserID", "0");
                         Images.this.startActivity(registerIntent3);
                         break;
 

@@ -98,14 +98,17 @@ public class GifsPage extends AppCompatActivity  {
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(GifsPage.this, Homepage.class);
+                        registerIntent.putExtra("UserID", "0");
                         GifsPage.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
-                        Intent registerIntent2 = new Intent(GifsPage.this, Profile.class);
+                        Intent registerIntent2 = new Intent(GifsPage.this, Notifications.class);
+                        registerIntent2.putExtra("UserID", "0");
                         GifsPage.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
-                        Intent registerIntent3 = new Intent(GifsPage.this, Notifications.class);
+                        Intent registerIntent3 = new Intent(GifsPage.this, Profile.class);
+                        registerIntent3.putExtra("UserID", "0");
                         GifsPage.this.startActivity(registerIntent3);
                         break;
 

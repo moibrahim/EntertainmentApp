@@ -154,14 +154,17 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Videos.this, Homepage.class);
+                        registerIntent.putExtra("UserID", "0");
                         Videos.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Videos.this, Notifications.class);
+                        registerIntent2.putExtra("UserID", "0");
                         Videos.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
                         Intent registerIntent3 = new Intent(Videos.this, Profile.class);
+                        registerIntent3.putExtra("UserID", "0");
                         Videos.this.startActivity(registerIntent3);
                         break;
 

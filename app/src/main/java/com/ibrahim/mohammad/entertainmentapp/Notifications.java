@@ -15,6 +15,8 @@ public class Notifications extends AppCompatActivity implements View.OnClickList
     private BottomNavigationView bottomNavigationView;
     public String id;
     private Button btnLogOut;
+    public String idNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,31 +32,36 @@ public class Notifications extends AppCompatActivity implements View.OnClickList
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //int id = Integer.parseInt(userIdnumber);
+
                 Intent intent = getIntent();
-                id = intent.getExtras().getString("UserID");
+                idNumber = intent.getExtras().getString("UserID");
+                if (idNumber.equals("")){
+                    Toast.makeText(Notifications.this, "No ID", Toast.LENGTH_LONG).show();
+                }
+
+                else {
+                    int id = Integer.parseInt(idNumber);
+                }
 
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Notifications.this, Homepage.class);
-                        registerIntent.putExtra("UserID", "1");
+                        registerIntent.putExtra("UserID", idNumber);
                         Notifications.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Notifications.this, Notifications.class);
-                        registerIntent2.putExtra("UserID", "1");
+                        registerIntent2.putExtra("UserID",idNumber);
                         Notifications.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
-
-                        if (id.equals("guest")) {
+                        if (idNumber.equals("guest")) {
                             Toast.makeText(Notifications.this, "Must be logged in to view Profile" + id, Toast.LENGTH_SHORT).show();
                             break;
                         }
-
-                        Toast.makeText(Notifications.this, id, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Notifications.this, idNumber, Toast.LENGTH_SHORT).show();
                         Intent registerIntent3 = new Intent(Notifications.this, Profile.class);
-                        registerIntent3.putExtra("UserID", id);
+                        registerIntent3.putExtra("UserID", idNumber);
                         Notifications.this.startActivity(registerIntent3);
                         break;
 

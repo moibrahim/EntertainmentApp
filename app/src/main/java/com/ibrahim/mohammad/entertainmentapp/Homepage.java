@@ -19,7 +19,7 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
     private Button btnImages;
     private Button btnGifs;
     private String UserId;
-    public String id;
+    public String idNumber;
 
 
     @Override
@@ -40,16 +40,20 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
 
         //bottom nav
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-
-                //int id = Integer.parseInt(userIdnumber);
                 Intent intent = getIntent();
-                id = intent.getExtras().getString("UserID");
+                idNumber = intent.getExtras().getString("UserID");
+                if (idNumber.equals("")){
+                    Toast.makeText(Homepage.this, "No ID", Toast.LENGTH_LONG).show();
+                }
+
+                else {
+                    int id = Integer.parseInt(idNumber);
+                }
+
 
                 switch (item.getItemId()) {
                     case R.id.menu_home:
@@ -63,15 +67,13 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
                         Homepage.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
-
-                      if (id.equals("guest")) {
-                          Toast.makeText(Homepage.this, "Must be logged in to view Profile" + id, Toast.LENGTH_SHORT).show();
+                      if (idNumber.equals("guest")) {
+                          Toast.makeText(Homepage.this, "Must be logged in to view Profile" , Toast.LENGTH_SHORT).show();
                           break;
                       }
-
-                          Toast.makeText(Homepage.this, id, Toast.LENGTH_SHORT).show();
+                          Toast.makeText(Homepage.this, idNumber, Toast.LENGTH_SHORT).show();
                           Intent registerIntent3 = new Intent(Homepage.this, Profile.class);
-                          registerIntent3.putExtra("UserID", id);
+                          registerIntent3.putExtra("UserID", idNumber);
                           Homepage.this.startActivity(registerIntent3);
                             break;
 

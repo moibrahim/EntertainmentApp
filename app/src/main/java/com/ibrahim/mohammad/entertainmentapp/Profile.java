@@ -46,6 +46,7 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
     private String savedPost2;
     private String comments;
     private String msgs;
+    private String userIdnumber;
 
 
 
@@ -55,6 +56,16 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
         setContentView(R.layout.activity_profile);
 
         RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.ratingBar);
+        Intent intent = getIntent();
+        userIdnumber = intent.getExtras().getString("UserID");
+
+        if (userIdnumber.equals("")){
+            Toast.makeText(Profile.this, "No ID", Toast.LENGTH_LONG).show();
+        }
+
+        else {
+            int id = Integer.parseInt(userIdnumber);
+        }
 
         btnSavedpost = (Button) findViewById(R.id.btnSavedpost);
         btnSavedpost.setOnClickListener(this);
@@ -82,14 +93,17 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Profile.this, Homepage.class);
+                        registerIntent.putExtra("UserID", userIdnumber);
                         Profile.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Profile.this, Notifications.class);
+                        registerIntent2.putExtra("UserID", userIdnumber);
                         Profile.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
                         Intent registerIntent3 = new Intent(Profile.this, Profile.class);
+                        registerIntent3.putExtra("UserID", userIdnumber);
                         Profile.this.startActivity(registerIntent3);
                         break;
                 }
@@ -97,17 +111,21 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
             }
         });
 
-        Intent intent = getIntent();
-        String userIdnumber = intent.getExtras().getString("UserID");
-        int id = Integer.parseInt(userIdnumber);
 
-        user = database.userDao().getAllUser().get(id);
-        username = user.name.toString();
-        profilUsername.setText(username);
+
+
+            if (userIdnumber.equals("")){
+                Toast.makeText(Profile.this, "No ID", Toast.LENGTH_LONG).show();
+                }
+
+            else {
+                int id = Integer.parseInt(userIdnumber);
+                user = database.userDao().getAllUser().get(id);
+                username = user.name.toString();
+                profilUsername.setText(username);
+            }
 
         setProfile(status,savedPost,savedPost2);
-
-
     }
 
 
