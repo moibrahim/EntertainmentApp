@@ -19,9 +19,6 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE =
                     Room.databaseBuilder(context, AppDatabase.class, "userdatabase")
-//Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class)
-                            // To simplify the exercise, allow queries on the main thread.
-                            // Don't do this on a real app!
                             .allowMainThreadQueries()
                             // recreate the database if necessary
                             .fallbackToDestructiveMigration()

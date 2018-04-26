@@ -37,22 +37,40 @@ public class GifsPage extends AppCompatActivity  {
     private Button btnPlay;
     private AppDatabase database;
     private Gifs gifs;
+    private Gifs gifs2;
     private int gifCount;
     private String url;
+    private String url2;
+    private String url3;
+    private String url4;
+    private String url5;
+    private String url6;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gifs_page);
 
-
         database = AppDatabase.getDatabase(getApplicationContext());
-        List<Gifs> users = database.gifsDao().getAllgifs();
-        gifCount = users.size() + 1;
-        database.gifsDao().addGif(new Gifs(gifCount, "hello", "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4"));
+        FillContent();
 
+
+        String[] urlList = new String[6];
+        gifs = database.gifsDao().getAllgifs().get(0);
+        urlList[0] = gifs.gifUrl.toString();
         gifs = database.gifsDao().getAllgifs().get(1);
-        url = gifs.gifUrl.toString();
+        urlList[1] = gifs.gifUrl.toString();
+        gifs = database.gifsDao().getAllgifs().get(2);
+        urlList[2] = gifs.gifUrl.toString();
+        gifs = database.gifsDao().getAllgifs().get(3);
+        urlList[3] = gifs.gifUrl.toString();
+        gifs = database.gifsDao().getAllgifs().get(4);
+        urlList[4] = gifs.gifUrl.toString();
+        gifs = database.gifsDao().getAllgifs().get(5);
+        urlList[5] = gifs.gifUrl.toString();
+
 
 
 
@@ -60,12 +78,12 @@ public class GifsPage extends AppCompatActivity  {
         mVideosListView = (ListView) findViewById(R.id.vidList);
 
         //create videos
-        Video riverVideo = new Video(url);
-        Video carsVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862013714.mp4");
-        Video townVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862014159.mp4");
-        Video whiteCarVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862014159.mp4");
-        Video parkVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862014834.mp4");
-        Video busyCityVideo = new Video("https://s3.amazonaws.com/androidvideostutorial/862017385.mp4");
+        Video riverVideo = new Video(urlList[0]);
+        Video carsVideo = new Video(urlList[1]);
+        Video townVideo = new Video(urlList[2]);
+        Video whiteCarVideo = new Video(urlList[3]);
+        Video parkVideo = new Video(urlList[4]);
+        Video busyCityVideo = new Video(urlList[5]);
 
         mVideosList.add(riverVideo);
         mVideosList.add(carsVideo);
@@ -118,6 +136,22 @@ public class GifsPage extends AppCompatActivity  {
             }
         });
 
+    }
+
+    private void FillContent() {
+        url = "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4";
+        url2 = "https://s3.amazonaws.com/androidvideostutorial/862013714.mp4";
+        url3 = "https://s3.amazonaws.com/androidvideostutorial/862014159.mp4";
+        url4 = "https://s3.amazonaws.com/androidvideostutorial/862014834.mp4";
+        url5 = "https://s3.amazonaws.com/androidvideostutorial/862013714.mp4";
+        url6 = "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4";
+
+        database.gifsDao().addGif(new Gifs(1, "gif1", url));
+        database.gifsDao().addGif(new Gifs(2, "gif2", url2));
+        database.gifsDao().addGif(new Gifs(3, "gif3", url3));
+        database.gifsDao().addGif(new Gifs(4, "gif4", url4));
+        database.gifsDao().addGif(new Gifs(5, "gif5", url5));
+        database.gifsDao().addGif(new Gifs(6, "gif6", url6));
     }
 
 }
