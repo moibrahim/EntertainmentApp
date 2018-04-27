@@ -74,7 +74,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             pass = user.password.toString();
             namew = user.name.toString();
 
-            Toast.makeText(Register.this, "Account created" + userCount + "--" +rgIdString + namew + pass, Toast.LENGTH_LONG).show();
+            Toast.makeText(Register.this, "Account created, Welcome " + username , Toast.LENGTH_LONG).show();
             Intent prefIntent = new Intent(Register.this, Homepage.class);
             String id = Integer.toString(userCount-1);
             prefIntent.putExtra("UserID", id);

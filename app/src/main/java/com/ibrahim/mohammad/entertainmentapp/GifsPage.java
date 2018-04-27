@@ -139,12 +139,12 @@ public class GifsPage extends AppCompatActivity  {
     }
 
     private void FillContent() {
-        url = "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4";
-        url2 = "https://s3.amazonaws.com/androidvideostutorial/862013714.mp4";
-        url3 = "https://s3.amazonaws.com/androidvideostutorial/862014159.mp4";
-        url4 = "https://s3.amazonaws.com/androidvideostutorial/862014834.mp4";
-        url5 = "https://s3.amazonaws.com/androidvideostutorial/862013714.mp4";
-        url6 = "https://media.giphy.com/media/X91CkTcIUf9azs2ZtH/giphy.mp4";
+        url = "https://media.giphy.com/media/9rAoTzQHlPD1VrbaKX/giphy.mp4";
+        url2 = "https://media.giphy.com/media/pyOEdijzCr46IPA91U/giphy.mp4";
+        url3 = "https://media.giphy.com/media/l0Iyau7QcKtKUYIda/giphy.mp4";
+        url4 = "https://media.giphy.com/media/3reYmxAiEnQl8lcvoe/giphy.mp4";
+        url5 = "https://media.giphy.com/media/2YliFWN06mTs4IcNVN/giphy.mp4";
+        url6 = "https://media.giphy.com/media/l0IyayMlfXiWKTJCM/giphy.mp4";
 
         database.gifsDao().addGif(new Gifs(1, "gif1", url));
         database.gifsDao().addGif(new Gifs(2, "gif2", url2));

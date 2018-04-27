@@ -15,64 +15,40 @@
         app:menu="@menu/menu_bottom_navigation" />
 
     <Button
-        android:id="@+id/btnViral"
-        android:layout_width="348dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Viral" />
-
-    <Button
         android:id="@+id/btnVideos"
-        android:layout_width="165dp"
-        android:layout_height="127dp"
-        android:layout_alignStart="@+id/btnViral"
-        android:layout_alignTop="@+id/btnImages"
-        android:text="Videos" />
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnImages"
+        android:background="@color/purple"
+        android:text="Videos"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="casual" />
 
     <Button
         android:id="@+id/btnImages"
-        android:layout_width="165dp"
-        android:layout_height="127dp"
-        android:layout_alignEnd="@+id/btnViral"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="90dp"
-        android:text="Images" />
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnGifs"
+        android:background="@color/blue"
+        android:text="Images"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:fontFamily="casual"/>
 
     <Button
         android:id="@+id/btnGifs"
-        android:layout_width="165dp"
-        android:layout_height="131dp"
-        android:layout_alignEnd="@+id/btnViral"
-        android:layout_alignTop="@+id/BtnStories"
-        android:text="Gifs" />
-
-    <Button
-        android:id="@+id/BtnStories"
-        android:layout_width="165dp"
-        android:layout_height="127dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/btnViral"
-        android:layout_marginBottom="147dp"
-        android:text="Stories" />
-
-    <Button
-        android:id="@+id/btnSprots"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btnViral"
-        android:layout_alignTop="@+id/btnNews"
-        android:text="Sports" />
-
-    <Button
-        android:id="@+id/btnNews"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnViral"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="72dp"
-        android:text="News" />
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/lime"
+        android:text="Gifs"
+        android:textSize="32sp"
+        app:fontFamily="casual"
+        android:textStyle="bold"/>
 
 
 </RelativeLayout>

@@ -27,7 +27,7 @@ public class Notifications extends AppCompatActivity implements View.OnClickList
         btnLogOut.setOnClickListener(this);
         //bottom nav
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-
+        bottomNavigationView.getMenu().getItem(2).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -37,10 +37,6 @@ public class Notifications extends AppCompatActivity implements View.OnClickList
                 idNumber = intent.getExtras().getString("UserID");
                 if (idNumber.equals("")){
                     Toast.makeText(Notifications.this, "No ID", Toast.LENGTH_LONG).show();
-                }
-
-                else {
-                    int id = Integer.parseInt(idNumber);
                 }
 
                 switch (item.getItemId()) {
@@ -56,7 +52,7 @@ public class Notifications extends AppCompatActivity implements View.OnClickList
                         break;
                     case R.id.menu_profile:
                         if (idNumber.equals("guest")) {
-                            Toast.makeText(Notifications.this, "Must be logged in to view Profile" + id, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Notifications.this, "Must be logged in to view Profile" , Toast.LENGTH_SHORT).show();
                             break;
                         }
                         Toast.makeText(Notifications.this, idNumber, Toast.LENGTH_SHORT).show();

@@ -39,6 +39,11 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
     private com.ibrahim.mohammad.entertainmentapp.database.Videos videos;
     private int gifCount;
     private String url;
+    private String vid1;
+    private String vid2;
+    private String vid3;
+    private String vid4;
+    private String vid5;
 
 
     @Override
@@ -51,29 +56,38 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
         imageView2 = (ImageView) findViewById(R.id.imageView2);
         mediaController = new MediaController(this);
 
+        vid1 = "https://cf-e2.streamablevideo.com/video/mp4/6q6g7.mp4?token=1524784785-fkp1gyOCXMEzQ%2FdX%2FknkkIi1%2BZAYoztMLlDIeCzUhco%3D";
+        vid2 = "https://cf-e2.streamablevideo.com/video/mp4/cj80y.mp4?token=1524784785-gi%2BC3%2FvQc%2FZIeW0cjM5kGt7PnvPWr9LCTwXkyKv4%2BMU%3D";
+        vid3 = "https://cf-e2.streamablevideo.com/video/mp4/zxcoc.mp4?token=1524784785-rwdaGAeuu3ZN1okyUMeKwuApf39mHlUjiFSta7PhEx0%3D";
+        vid4 = "https://cf-e2.streamablevideo.com/video/mp4/dwaes.mp4?token=1524784785-dMJHHU5PKt1VXfv6ZQSDnbThobMiH1nEGBVwxU9V0m8%3D";
+        vid5 = "https://cf-e2.streamablevideo.com/video/mp4/jcb42.mp4?token=1524784785-U5AwHHzyP%2FE4oJsfEZ8kKDRfLY3DeQFkrB2W09h%2BaCM%3D";
+
+
+
+
         imageView2.setOnTouchListener(new OnSwipeTouchListener(Videos.this) {
 
             public void onSwipeRight() {
                 Uri uri = Uri.parse("https://");
                 switch (current) {
                     case "1":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                        uri = Uri.parse(vid2);
                         current = "2";
                         break;
                     case "2":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                        uri = Uri.parse(vid3);
                         current = "3";
                         break;
                     case "3":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/0dp8t.mp4?token=1524361944-PGlmcKEiz2j1pLRvJ5gP0ndVKsmZifw9WrkQBrBllhg%3D");
+                        uri = Uri.parse(vid4);
                         current = "4";
                         break;
                     case "4":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                        uri = Uri.parse(vid5);
                         current = "5";
                         break;
                     case "5":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                        uri = Uri.parse(vid1);
                         current = "1";
                         break;
 
@@ -87,23 +101,23 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
                 Uri uri = Uri.parse("https://");
                 switch (current) {
                     case "1":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                        uri = Uri.parse(vid5);
                         current = "5";
                         break;
                     case "5":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                        uri = Uri.parse(vid4);
                         current = "4";
                         break;
                     case "4":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/0dp8t.mp4?token=1524361944-PGlmcKEiz2j1pLRvJ5gP0ndVKsmZifw9WrkQBrBllhg%3D");
+                        uri = Uri.parse(vid3);
                         current = "3";
                         break;
                     case "3":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                        uri = Uri.parse(vid2);
                         current = "2";
                         break;
                     case "2":
-                        uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                        uri = Uri.parse(vid1);
                         current = "1";
                         break;
 
@@ -129,7 +143,7 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
         List<com.ibrahim.mohammad.entertainmentapp.database.Videos> vidsList = database.videosDao().getAllvids();
         gifCount = vidsList.size() + 1;
         //add video link to videos table and set it to string - video controls
-        database.videosDao().addVid(new com.ibrahim.mohammad.entertainmentapp.database.Videos(gifCount, "hello", "https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524360340-YhCiizZrMWP9HstoVEB2QizySqG2UIaRXZkjSc3knXk%3D"));
+        database.videosDao().addVid(new com.ibrahim.mohammad.entertainmentapp.database.Videos(gifCount, "hello", vid1));
 
         videos = database.videosDao().getAllvids().get(1);
         url = videos.vidUrl.toString();
@@ -185,23 +199,23 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
         if (v == btnNext) {
             switch (current) {
                 case "1":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                    uri = Uri.parse(vid2);
                     current = "2";
                     break;
                 case "2":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                    uri = Uri.parse(vid3);
                     current = "3";
                     break;
                 case "3":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/0dp8t.mp4?token=1524361944-PGlmcKEiz2j1pLRvJ5gP0ndVKsmZifw9WrkQBrBllhg%3D");
+                    uri = Uri.parse(vid4);
                     current = "4";
                     break;
                 case "4":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                    uri = Uri.parse(vid5);
                     current = "5";
                     break;
                 case "5":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                    uri = Uri.parse(vid1);
                     current = "1";
                     break;
 
@@ -215,23 +229,23 @@ public class Videos extends AppCompatActivity implements View.OnClickListener, V
         if (v == btnPrev) {
             switch (current) {
                 case "1":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                    uri = Uri.parse(vid5);
                     current = "5";
                     break;
                 case "5":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                    uri = Uri.parse(vid4);
                     current = "4";
                     break;
                 case "4":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/0dp8t.mp4?token=1524361944-PGlmcKEiz2j1pLRvJ5gP0ndVKsmZifw9WrkQBrBllhg%3D");
+                    uri = Uri.parse(vid3);
                     current = "3";
                     break;
                 case "3":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/up4qf.mp4?token=1524361529-qRi331becaIzgqpG5dgABJ0y%2B0R116ez0LTml0t2qPw%3D");
+                    uri = Uri.parse(vid2);
                     current = "2";
                     break;
                 case "2":
-                    uri = Uri.parse("https://cf-e2.streamablevideo.com/video/mp4/p7xh5.mp4?token=1524361855-cvHoey01UxRNubN7CuStpmTFZQddhDDnxqaNowPNSWU%3D");
+                    uri = Uri.parse(vid1);
                     current = "1";
                     break;
 

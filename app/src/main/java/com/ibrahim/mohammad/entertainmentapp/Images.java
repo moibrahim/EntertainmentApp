@@ -103,8 +103,8 @@ public class Images extends AppCompatActivity {
         final String url = urlNumber.toString();
         //add video link to videos table and set it to string - video controls
         database3.imagesDao().addImages(new ImagesList(imgCount,title,url));
-        Intent registerIntent4 = new Intent(Images.this, Postpage.class);
-        Images.this.startActivity(registerIntent4);
+        //Intent registerIntent4 = new Intent(Images.this, Postpage.class);
+        //Images.this.startActivity(registerIntent4);
 
     }
 

@@ -20,7 +20,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="34dp"
         android:layout_marginTop="33dp"
-        android:text="ToggleButton" />
+        android:text="ToggleButton"
+        android:background="@color/blue"/>
 
     <TextView
         android:id="@+id/textView"
@@ -40,7 +41,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/toggleButton"
         android:layout_marginTop="123dp"
-        android:text="ToggleButton" />
+        android:text="ToggleButton"
+        android:background="@color/blue"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -59,7 +61,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="153dp"
-        android:text="Log Out" />
+        android:text="Log Out"
+        android:background="@color/blue"/>
 
     <View
         android:id="@+id/divider"

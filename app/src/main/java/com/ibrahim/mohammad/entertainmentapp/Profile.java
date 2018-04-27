@@ -87,6 +87,7 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
 
         //bottom nav
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
+        bottomNavigationView.getMenu().getItem(1).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -189,7 +190,8 @@ public class Profile extends AppCompatActivity  implements View.OnClickListener{
                     break;
                 }
             case R.id.btnSettings:
-                //go settings page
+                Intent settingAccIntent = new Intent(Profile.this, Notifications.class);
+                Profile.this.startActivity(settingAccIntent);
                 break;
 
             case R.id.btnEditAcc:

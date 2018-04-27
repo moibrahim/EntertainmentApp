@@ -44,26 +44,22 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 Intent intent = getIntent();
                 idNumber = intent.getExtras().getString("UserID");
                 if (idNumber.equals("")){
                     Toast.makeText(Homepage.this, "No ID", Toast.LENGTH_LONG).show();
                 }
 
-                else {
-                    int id = Integer.parseInt(idNumber);
-                }
-
-
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         Intent registerIntent = new Intent(Homepage.this, Homepage.class);
-                        registerIntent.putExtra("UserID", "1");
+                        registerIntent.putExtra("UserID", idNumber);
                         Homepage.this.startActivity(registerIntent);
                         break;
                     case R.id.menu_notifications:
                         Intent registerIntent2 = new Intent(Homepage.this, Notifications.class);
-                        registerIntent2.putExtra("UserID", "1");
+                        registerIntent2.putExtra("UserID", idNumber);
                         Homepage.this.startActivity(registerIntent2);
                         break;
                     case R.id.menu_profile:
@@ -71,11 +67,13 @@ public class Homepage extends AppCompatActivity implements View.OnClickListener{
                           Toast.makeText(Homepage.this, "Must be logged in to view Profile" , Toast.LENGTH_SHORT).show();
                           break;
                       }
-                          Toast.makeText(Homepage.this, idNumber, Toast.LENGTH_SHORT).show();
+                      else{
                           Intent registerIntent3 = new Intent(Homepage.this, Profile.class);
                           registerIntent3.putExtra("UserID", idNumber);
                           Homepage.this.startActivity(registerIntent3);
-                            break;
+                          break;
+                      }
+
 
                 }
                 return false;

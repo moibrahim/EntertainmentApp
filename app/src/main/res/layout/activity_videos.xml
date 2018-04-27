@@ -16,14 +16,10 @@
 
     <VideoView
         android:id="@+id/videoViewVids"
-        android:layout_width="wrap_content"
-        android:layout_height="261dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp" />
+        android:layout_width="match_parent"
+        android:layout_height="338dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/btnPrev"
@@ -31,9 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="115dp"
+        android:layout_marginBottom="86dp"
         android:layout_marginStart="27dp"
-        android:text="prev" />
+        android:background="@android:drawable/ic_media_rew"
+        android:tint="@color/purple"/>
 
     <Button
         android:id="@+id/btnNext"
@@ -42,14 +39,27 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/btnPrev"
         android:layout_marginEnd="48dp"
-        android:text="next" />
+        android:background="@android:drawable/ic_media_ff"
+        android:tint="@color/purple"/>
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="349dp"
-        android:layout_height="453dp"
-        android:layout_alignParentStart="true"
+        android:layout_width="366dp"
+        android:layout_height="593dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
+        android:layout_centerHorizontal="true"
         android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/btnPrev"
+        android:layout_marginStart="-27dp"
+        android:layout_marginTop="17dp"
+        android:text="Viral Videos"
+        android:textSize="30sp"
+        app:fontFamily="casual"
+        android:gravity="center"/>
 </RelativeLayout>
