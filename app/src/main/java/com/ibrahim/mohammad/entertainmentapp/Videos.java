@@ -41,6 +41,7 @@ public class Videos extends AppCompatActivity implements View.OnClickListener  {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnPlay:
+                //play
                 videoView.start();
                 break;
 
