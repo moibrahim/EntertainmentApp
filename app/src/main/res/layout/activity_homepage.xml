@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,20 +10,69 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         app:menu="@menu/menu_bottom_navigation" />
 
+    <Button
+        android:id="@+id/btnViral"
+        android:layout_width="348dp"
+        android:layout_height="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="Viral" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnVideos"
+        android:layout_width="165dp"
+        android:layout_height="127dp"
+        android:layout_alignStart="@+id/btnViral"
+        android:layout_alignTop="@+id/BtnImages"
+        android:text="Videos" />
+
+    <Button
+        android:id="@+id/BtnImages"
+        android:layout_width="165dp"
+        android:layout_height="127dp"
+        android:layout_alignEnd="@+id/btnViral"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="90dp"
+        android:text="Images" />
+
+    <Button
+        android:id="@+id/btnGifs"
+        android:layout_width="165dp"
+        android:layout_height="131dp"
+        android:layout_alignEnd="@+id/btnViral"
+        android:layout_alignTop="@+id/BtnStories"
+        android:text="Gifs" />
+
+    <Button
+        android:id="@+id/BtnStories"
+        android:layout_width="165dp"
+        android:layout_height="127dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnViral"
+        android:layout_marginBottom="147dp"
+        android:text="Stories" />
+
+    <Button
+        android:id="@+id/btnSprots"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnViral"
+        android:layout_alignTop="@+id/btnNews"
+        android:text="Sports" />
+
+    <Button
+        android:id="@+id/btnNews"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnViral"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp"
+        android:text="News" />
+
+
+</RelativeLayout>

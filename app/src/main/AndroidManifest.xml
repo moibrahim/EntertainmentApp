@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ibrahim.mohammad.entertainmentapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,8 @@
         </activity>
         <activity android:name=".Homepage" />
         <activity android:name=".Register" />
-        <activity android:name=".redirect"></activity>
+        <activity android:name=".redirect" />
+        <activity android:name=".Videos"></activity>
     </application>
 
 </manifest>
